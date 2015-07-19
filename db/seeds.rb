@@ -5,3 +5,36 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+num_of_users = 20
+num_of_surveys = 30
+
+num_of_users.times do
+  first_name = Faker::Name.first_name
+  last_name  = Faker::Name.last_name
+  email      = "#{first_name}.#{last_name}@email.com"
+  username   = "#{first_name[0..3]}#{last_name[0..3]}#{(rand(99).to_s)}"
+  password   = ['12345','54321'].sample
+  User.create(
+    first_name: first_name,
+    last_name: last_name,
+    email: email,
+    username: username,
+    password_digest: password
+  )
+end
+
+num_of_surveys.times do
+  Survey.create(
+    subject: Faker::Hacker.adjective,
+    question: Faker::Hacker.say_something_smart
+  )
+end
+
+Survey.all.each do |survey|
+  User.all.sample(rand((num_of_users/5)..num_of_surveys)).each do |user|
+    opinion = Opinion.create(answer: [true, false].sample)
+    survey.opinions << opinion
+    user.opinions << opinion
+  end
+end

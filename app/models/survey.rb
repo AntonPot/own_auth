@@ -1,4 +1,4 @@
 class Survey < ActiveRecord::Base
-  has_many :opinion
-  has_many :users, through: :opinion
+  has_many :opinions
+  has_many :users, through: :opinions
 end
