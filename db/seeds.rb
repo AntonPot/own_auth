@@ -15,13 +15,14 @@ num_of_users.times do
   email      = "#{first_name}.#{last_name}@email.com"
   username   = "#{first_name[0..3]}#{last_name[0..3]}#{(rand(99).to_s)}"
   password   = ['12345','54321'].sample
-  User.create(
+  user = User.new(
     first_name: first_name,
     last_name: last_name,
     email: email,
     username: username,
-    password_digest: password
   )
+  user.password = password
+  user.save
 end
 
 num_of_surveys.times do
