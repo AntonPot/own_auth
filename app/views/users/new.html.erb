@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Register here:</h2>
+  <%= form_for @user do |f| %>
+    <%= f.label 'First name:' %>
+    <%= f.text_field :first_name %><br>
+    <%= f.label 'Last name:' %>
+    <%= f.text_field :last_name %><br>
+    <%= f.label 'Email:' %>
+    <%= f.text_field :email %><br>
+    <%= f.label 'Username:' %>
+    <%= f.text_field :username %><br>
+    <%= f.label 'Password:' %>
+    <%= f.text_field :password %><br>
+    <%= f.submit "Create" %>
+  <% end %>
+</div>

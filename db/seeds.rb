@@ -12,7 +12,7 @@ num_of_surveys = 30
 num_of_users.times do
   first_name = Faker::Name.first_name
   last_name  = Faker::Name.last_name
-  email      = "#{first_name}.#{last_name}@email.com"
+  email      = Faker::Internet.free_email("#{first_name}.#{last_name}")
   username   = "#{first_name[0..3]}#{last_name[0..3]}#{(rand(99).to_s)}"
   password   = ['12345','54321'].sample
   user = User.new(
