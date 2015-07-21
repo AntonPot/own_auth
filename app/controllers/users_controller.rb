@@ -2,8 +2,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    p "@"*99
-    p session
   end
 
   def new
