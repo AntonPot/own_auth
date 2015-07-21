@@ -1,4 +1,9 @@
 <div class="container">
+  <% if session[:user_id] %>
+    <h1>Hello <%= User.find(session[:user_id]).first_name %></h1>
+  <% else %>
+    <h1>Please log in</h1>
+  <% end %>
   <table>
     <tr>
       <th>Username</th>
