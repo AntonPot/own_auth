@@ -21,7 +21,9 @@ num_of_users.times do
     email: email,
     username: username
   )
+  user.email_confirmation = email
   user.password = password
+  user.password_confirmation = password
   user.save
 end
 

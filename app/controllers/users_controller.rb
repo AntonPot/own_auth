@@ -11,6 +11,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    p "$"*99
+    p user_params
     if @user.save
       redirect_to '/'
     else
@@ -22,6 +24,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :username, :password)
+    params.require(:user).permit(:first_name, :last_name, :email, :email_confirmation, :username, :password, :password_confirmation)
   end
 end
