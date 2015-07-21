@@ -1,6 +1,21 @@
 <div class="container">
   <% if session[:user_id] %>
-    <h1>Hello <%= current_user.first_name %></h1>
+    <h1><%= current_user.first_name + " " + current_user.last_name %></h1>
+    <h3>All surveys</h3>
+    <table>
+      <tr>
+        <th>Num</th>
+        <th>Subject</th>
+        <th>Question</th>
+      </tr>
+      <% @surveys.each_with_index do |s,i| %>
+      <tr>
+        <td><%= (i+1).to_s %></td>
+        <td><%= s.subject %></td>
+        <td><%= s.question %></td>
+      </tr>
+      <% end %>
+    </table><br>
   <% else %>
     <h1>Please log in</h1>
   <% end %>
@@ -15,8 +30,6 @@
       <td><%= u.email %></td>
     </tr>
     <% end %>
-  </table><br>
-  <%= button_to 'Register', signup_path, method: 'get' %>
-  <%= button_to 'Log in', login_path, method: 'get' %>
-  <%= button_to 'Log out', logout_path, method: 'delete' %>
+  </table>
+
 </div>

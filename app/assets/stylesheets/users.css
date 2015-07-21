@@ -80,3 +80,12 @@ form.quirks {
   background:none;
   font-weight: :bold;
 }
+
+.nav_bar_margin {
+  padding-left: 7%;
+}
+
+.nav_bar_text {
+  font-weight: bold;
+  font-size: 100%;
+}

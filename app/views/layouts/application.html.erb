@@ -7,7 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<header class="nav_bar_margin nav_bar_text">
+  <% if current_user %>
+    Hello <%= current_user.username %>
+    <%= button_to 'Log out', logout_path, method: 'delete' %>
+  <% else %>
+    Welcome, please log in or register
+  <%= button_to 'Register', signup_path, method: 'get' %>
+  <%= button_to 'Log in', login_path, method: 'get' %>
+  <% end %>
+</header>
 <%= yield %>
 
 </body>

@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @surveys = current_user.surveys if current_user
   end
 
   def new
