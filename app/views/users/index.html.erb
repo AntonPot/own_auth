@@ -1,6 +1,6 @@
 <div class="container">
   <% if session[:user_id] %>
-    <h1>Hello <%= User.find(session[:user_id]).first_name %></h1>
+    <h1>Hello <%= current_user.first_name %></h1>
   <% else %>
     <h1>Please log in</h1>
   <% end %>
@@ -15,8 +15,8 @@
       <td><%= u.email %></td>
     </tr>
     <% end %>
-  </table>
-  <%= link_to 'Register', signup_path %>
-  <%= link_to 'Log in', login_path %>
-  <%= link_to 'Log out', logout_path, method: 'delete' %>
+  </table><br>
+  <%= button_to 'Register', signup_path, method: 'get' %>
+  <%= button_to 'Log in', login_path, method: 'get' %>
+  <%= button_to 'Log out', logout_path, method: 'delete' %>
 </div>
