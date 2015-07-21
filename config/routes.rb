@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
 
   root 'users#index'
-  get '/signup' => 'users#new'
+
   get '/users' => 'users#index'
+
+  get '/signup' => 'users#new'
   post '/users' => 'users#create'
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+
 
   # resources :users
 
