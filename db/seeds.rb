@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-num_of_users = 20
+num_of_users = 15
 num_of_surveys = 30
 
 num_of_users.times do
@@ -19,7 +19,7 @@ num_of_users.times do
     first_name: first_name,
     last_name: last_name,
     email: email,
-    username: username,
+    username: username
   )
   user.password = password
   user.save
