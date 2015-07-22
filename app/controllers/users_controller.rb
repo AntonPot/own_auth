@@ -9,6 +9,14 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def google_responce
+    p "#"*99
+    # content_type 'text/plain'
+    p request.env['omniauth.auth'].to_hash
+    p "#"*99
+    redirect_to '/'
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save

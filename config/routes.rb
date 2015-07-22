@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   get '/auth/google_oauth2' => 'users#new'
+  get '/auth/google_oauth2/callback' => 'users#google_responce'
 
 
 
