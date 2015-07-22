@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/users' => 'users#create'
   get '/users/:id/edit' => 'users#edit', as: 'edit_user'
   patch '/users/:id' => 'users#update', as: 'user'
-
+  delete '/users/:id' => 'users#destroy'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

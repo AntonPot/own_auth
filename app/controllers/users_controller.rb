@@ -25,9 +25,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    p "#"*99
-    p user_params
-    p "*"*99
     user = User.find(params[:id])
     user.assign_attributes(user_params)
     user.email_confirmation = user.email
@@ -38,7 +35,13 @@ class UsersController < ApplicationController
       flash[:notice] = user.errors.messages
       redirect_to edit_user_path
     end
+  end
 
+  def destroy
+    user = User.find(params[:id])
+    session[:user_id] = nil
+    user.destroy
+    redirect_to root_path
   end
 
   private
