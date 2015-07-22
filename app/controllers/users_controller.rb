@@ -23,6 +23,23 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user
+  end
+
+  def update
+    p "#"*99
+    p user_params
+    p "*"*99
+    user = User.find(params[:id])
+    user.assign_attributes(user_params)
+    user.email_confirmation = user.email
+    if user.save
+      flash[:notice] = "Update successful"
+      redirect_to root_path
+    else
+      flash[:notice] = user.errors.messages
+      redirect_to edit_user_path
+    end
 
   end
 
