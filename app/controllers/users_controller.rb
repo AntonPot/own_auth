@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def google_responce
+  def google_callback
     p "#"*99
     # content_type 'text/plain'
     p request.env['omniauth.auth'].to_hash
