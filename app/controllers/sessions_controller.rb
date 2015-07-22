@@ -11,6 +11,9 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(password)
       sign_in_as(@user)
       redirect_to '/'
+    # elsif user_data
+    #   p "#"*99
+    #   p user_data
     else
       flash[:notice] = 'Password or email is incorrect'
       redirect_to '/login'

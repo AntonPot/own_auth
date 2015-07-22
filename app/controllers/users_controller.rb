@@ -10,11 +10,15 @@ class UsersController < ApplicationController
   end
 
   def google_callback
-    p "#"*99
-    # content_type 'text/plain'
-    p request.env['omniauth.auth'].to_hash
-    p "#"*99
-    redirect_to '/'
+    if user_data
+      user = User.where(google_uid: user_data["uid"]).first
+      user ||= create_user_from_google user_data
+      sign_in_as user
+      redirect_to root_path
+    else
+      flash[:notice] = "Something went wrong. Try creating an account."
+      redirect_to signup_path
+    end
   end
 
   def create
