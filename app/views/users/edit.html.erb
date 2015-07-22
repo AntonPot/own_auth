@@ -1,4 +1,28 @@
 <div class="container">
   <h1>Edit yourself <%= current_user.first_name %></h1>
+  <%= form_for @user do |f| %>
 
+    <%= f.label "Edit first name" %>
+    <%= f.text_field :first_name %><br>
+
+    <%= f.label 'Last name:' %>
+    <%= f.text_field :last_name %><br>
+
+    <%= f.label 'Email:' %>
+    <%= f.text_field :email %><br>
+
+    <%= f.label 'Confirm email:' %>
+    <%= f.text_field :email_confirmation %><br>
+
+    <%= f.label 'Username:' %>
+    <%= f.text_field :username %><br>
+
+    <%= f.label 'Password:' %>
+    <%= f.password_field :password %><br>
+
+    <%= f.label 'Confirm password:' %>
+    <%= f.password_field :password_confirmation %><br>
+
+    <%= f.submit "Update" %>
+  <% end %>
 </div>

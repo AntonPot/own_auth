@@ -10,7 +10,7 @@
 <header class="nav_bar_margin nav_bar_text">
   <% if current_user %>
     Hello <%= current_user.username %>
-    <%= button_to 'Edit profile', edit_profile_path(current_user), method: 'get' %>
+    <%= button_to 'Edit profile', edit_user_path(current_user), method: 'get' %>
     <%= button_to 'Log out', logout_path, method: 'delete' %>
   <% else %>
     Welcome, please log in or register
