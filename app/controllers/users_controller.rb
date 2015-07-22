@@ -11,14 +11,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    p "$"*99
-    p user_params
     if @user.save
+      flash[:notice] = 'User has been successfuly created'
       redirect_to '/'
     else
       redirect_to '/signup'
-      p "@"*99
-      p @user.errors.messages
+      flash[:notice] = @user.errors.messages
     end
   end
 
