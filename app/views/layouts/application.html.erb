@@ -14,9 +14,9 @@
     <%= button_to 'Log out', logout_path, method: 'delete' %>
   <% else %>
     Welcome, please log in or register
-  <%= button_to 'Register', signup_path, method: 'get' %>
-  <%= button_to 'Register with Google', '/auth/google_oauth2', method: 'get' %>
-  <%= button_to 'Log in', login_path, method: 'get' %>
+    <%= button_to 'Register', signup_path, method: 'get' %>
+    <%= button_to 'Register with Google', '/auth/google_oauth2', method: 'get' %>
+    <%= button_to 'Log in', login_path, method: 'get' %>
   <% end %>
 </header>
 <%= yield %>
