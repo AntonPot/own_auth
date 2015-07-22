@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
+  get '/auth/google_oauth2' => 'users#new'
+
 
 
   # resources :users

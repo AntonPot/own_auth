@@ -39,7 +39,7 @@ group :development, :test do
   gem 'hirb'
   gem 'better_errors'
   gem 'faker'
-  gem 'dotenv', :require => 'dotenv/rails-now'
+  gem 'dotenv'#, :require => 'dotenv/rails-now'
   gem "omniauth-google-oauth2"
 
   # Access an IRB console on exception pages or by using <%= console %> in views
