@@ -1,6 +1,6 @@
 <div class="container">
   <h3><%= flash[:notice] %></h3>
-  <h1>Edit yourself <%= current_user.first_name %></h1>
+  <h1>Edit yourself <%= user_first_name %></h1>
   <%= form_for @user do |f| %>
 
     <%= f.label "First name" %>

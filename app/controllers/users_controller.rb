@@ -21,6 +21,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = 'User has been successfuly created'
+      # sign_in_as(@user)
       redirect_to '/'
     else
       redirect_to '/signup'

@@ -1,7 +1,7 @@
 <div class="container">
   <h3><%= flash[:notice] %></h3>
-  <% if session[:user_id] %>
-    <h1>All surveys taken by <%= current_user.first_name + " " + current_user.last_name %></h1>
+  <% if logged_in? %>
+    <h1>All surveys taken by <%= user_full_name %></h1>
     <table>
       <tr>
         <th>Num</th>
@@ -21,12 +21,12 @@
   <% end %>
   <table>
     <tr>
-      <th>Username</th>
+      <th>Name</th>
       <th>Email</th>
     </tr>
     <% @users.each do |u| %>
     <tr>
-      <td><%= u.username %></td>
+      <td><%= user_full_name(u) %></td>
       <td><%= u.email %></td>
     </tr>
     <% end %>
