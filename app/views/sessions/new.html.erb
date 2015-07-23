@@ -12,6 +12,7 @@
   <%= check_box_tag :remember_me, 1, params[:remember_me] %><br>
 
   <%= submit_tag "Sign in" %>
+  <%= link_to 'Forgoten password?', new_password_reset_path %>
 
   <% end %>
 

@@ -15,9 +15,6 @@ class SessionsController < ApplicationController
       else
         cookies[:auth_token] = user.auth_token
       end
-      p "$"*99
-      p params
-      p "$"*99
       redirect_to '/'
     else
       redirect_to '/login'

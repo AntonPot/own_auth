@@ -1,4 +1,5 @@
 <div class="container">
+  <h2><%= flash[:notice] %></h2>
   <% if session[:user_id] %>
     <h1><%= current_user.first_name + " " + current_user.last_name %></h1>
     <h3>All surveys</h3>
