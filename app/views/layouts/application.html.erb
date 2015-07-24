@@ -10,6 +10,7 @@
 <header class="nav_bar_margin nav_bar_text">
   <% if logged_in? %>
     Hello <%= user_first_name %>
+    <img src="<%= user_image %>">
     <%= button_to 'Edit profile', edit_user_path(current_user), method: 'get' %>
     <%= button_to 'Log out', logout_path, method: 'delete' %>
   <% else %>

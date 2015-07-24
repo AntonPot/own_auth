@@ -18,6 +18,7 @@ num_of_users.times do
     first_name: first_name,
     last_name: last_name,
     email: email,
+    image: Faker::Avatar.image("#{first_name}_#{last_name}","65x65")
   )
   user.email_confirmation = email
   user.password = password

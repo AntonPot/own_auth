@@ -8,4 +8,8 @@ module UsersHelper
     user.first_name
   end
 
+  def user_image(user = current_user)
+    user.image
+  end
+
 end
