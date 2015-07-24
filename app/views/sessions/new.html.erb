@@ -1,15 +1,19 @@
 <div class="container">
   <h3><%= flash[:notice] %></h3>
   <h2>Log in here:</h2>
-  <%= form_for(:session, url: login_path) do |f| %>
+  <%= form_tag login_path do %>
 
-  <%= f.label :email %>
-  <%= f.email_field :email %><br>
+  <%= label_tag :email %>
+  <%= email_field_tag :email, params[:email] %><br>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %><br>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %><br>
 
-  <%= f.submit "Sign in" %>
+  <%= label_tag :remember_me %>
+  <%= check_box_tag :remember_me, 1, params[:remember_me] %><br>
+
+  <%= submit_tag "Sign in" %>
+  <%= link_to 'Forgoten password?', new_password_reset_path %>
 
   <% end %>
 
