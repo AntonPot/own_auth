@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest
       t.string :google_uid
       t.string :image
+      t.string :auth_token
 
       t.timestamps null: false
     end

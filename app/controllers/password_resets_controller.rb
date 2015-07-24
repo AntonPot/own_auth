@@ -11,15 +11,10 @@ class PasswordResetsController < ApplicationController
   def edit
     # Bang will raise 404 if user token isn't found
     @user = User.find_by_password_reset_token!(params[:id])
-    p "$"*99
-    p params
   end
 
   def update
     @user = User.find_by_password_reset_token!(params[:id])
-    p "%"*99
-    p params
-    p params[:user]
     @user.email_confirmation = @user.email
     if @user.password_reset_sent_at < 2.hours.ago
       redirect_to new_password_reset_path, :alert => "Password token has expired"

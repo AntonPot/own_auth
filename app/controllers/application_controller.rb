@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   # this is a controller helper method
   def sign_in_as(user)
-    session[:user_id] = user.id
+    cookies[:auth_token] = user.auth_token
   end
 
   def sign_out!
