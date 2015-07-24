@@ -6,11 +6,18 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
+  get '/users/:id/edit' => 'users#edit', as: 'edit_user'
+  patch '/users/:id' => 'users#update', as: 'user'
+  delete '/users/:id' => 'users#destroy'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-
   delete '/logout' => 'sessions#destroy'
+
+  get '/auth/google' => 'users#new'
+  get '/auth/google/callback' => 'users#google_callback'
+
+
 
   # resources :users
 

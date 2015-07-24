@@ -1,9 +1,9 @@
 <div class="container">
   <h3><%= flash[:notice] %></h3>
-  <h2>Register here:</h2>
+  <h1>Edit yourself <%= user_first_name %></h1>
   <%= form_for @user do |f| %>
 
-    <%= f.label 'First name:' %>
+    <%= f.label "First name" %>
     <%= f.text_field :first_name %><br>
 
     <%= f.label 'Last name:' %>
@@ -12,17 +12,13 @@
     <%= f.label 'Email:' %>
     <%= f.text_field :email %><br>
 
-    <%= f.label 'Confirm email:' %>
-    <%= f.text_field :email_confirmation %><br>
-
     <%= f.label 'Password:' %>
     <%= f.password_field :password %><br>
 
     <%= f.label 'Confirm password:' %>
     <%= f.password_field :password_confirmation %><br>
 
-    <%= f.submit "Create" %>
+    <%= f.submit "Update" %>
   <% end %>
-  <%= button_to "Back", root_path,  method: "get" %>
-
+  <%= button_to 'Delete your account', user_path(current_user), method: 'delete' %>
 </div>
