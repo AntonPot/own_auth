@@ -17,7 +17,7 @@ num_of_users.times do
   user = User.new(
     first_name: first_name,
     last_name: last_name,
-    email: email
+    email: email,
   )
   user.email_confirmation = email
   user.password = password
