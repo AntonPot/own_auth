@@ -6,8 +6,9 @@ class ApplicationController < ActionController::Base
   # this allows helper to be used in view
   helper_method :current_user
 
+  # find_by! raises an error when user isn't found
   def current_user
-    @current_user ||= User.find_by!(auth_token: cookies[:auth_token]) if cookies[:auth_token]
+    @current_user ||= User.find_by(auth_token: cookies[:auth_token]) if cookies[:auth_token]
   end
 
   # this is a controller helper method

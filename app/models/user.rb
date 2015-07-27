@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  has_many :opinions
+  # :dependent => :delete_all, when User is deleted all Opinions from this user are deleted as well
+  has_many :opinions, :dependent => :delete_all
   has_many :surveys, through: :opinions
 
   validates :email, confirmation: true # doesn't need to vaildate password confirmation, it must be added to #has_secure_password
