@@ -26,6 +26,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'dotenv'#, :require => 'dotenv/rails-now'
+gem 'omniauth-linkedin-oauth2'
+gem "omniauth-google-oauth2"
+
+
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -39,8 +45,6 @@ group :development, :test do
   gem 'hirb'
   gem 'better_errors'
   gem 'faker'
-  gem 'dotenv'#, :require => 'dotenv/rails-now'
-  gem "omniauth-google-oauth2"
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
