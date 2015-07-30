@@ -19,6 +19,11 @@ Rails.application.routes.draw do
   get '/auth/google' => 'users#new'
   get '/auth/google/callback' => 'users#google_callback'
 
+  get '/auth/linkedin' => 'users#new'
+  get '/auth/linkedin/callback' => 'users#linkedin_callback'
+
+
+
 
 
   # resources :users

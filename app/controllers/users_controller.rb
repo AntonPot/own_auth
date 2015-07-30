@@ -13,14 +13,17 @@ class UsersController < ApplicationController
     if user_data
       user = User.where(google_uid: user_data["uid"]).first
       user ||= create_user_from_google user_data
-      p "$"*99
-      p user
       sign_in_as user
       redirect_to root_path
     else
       flash[:notice] = "Something went wrong. Try creating an account."
       redirect_to signup_path
     end
+  end
+
+  def linkedin_callback
+      p "$"*99
+      p user
   end
 
   def create

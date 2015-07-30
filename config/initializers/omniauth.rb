@@ -1,4 +1,12 @@
+# Rails.application.config.middleware.use OmniAuth::Builder do
+#   provider :linkedin, ENV['LINKEDIN_KEY'], ENV['LINKEDIN_SECRET']
+# end
+
+
 Rails.application.config.middleware.use OmniAuth::Builder do
+
+  provider :linkedin, ENV['LINKEDIN_CLIENT_KEY'], ENV['LINKEDIN_CLIENT_SECRET']
+
   provider :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], {
       :name => "google",
       :scope => "email, profile",#, plus.me, http://gdata.youtube.com",
