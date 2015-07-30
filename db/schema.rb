@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150723191818) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "google_uid"
+    t.string   "linkedin_uid"
     t.string   "image"
     t.string   "auth_token"
     t.datetime "created_at",             null: false

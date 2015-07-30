@@ -20,24 +20,29 @@ class ApplicationController < ActionController::Base
     session.clear
   end
 
-  def google_user_data
+  def user_data
     request.env['omniauth.auth'].to_hash
   end
 
-  def linkedin_user_data
-    MultiJson.encode(request.env['omniauth.auth'])
-  end
-
-  def create_user_from_google(user_data)
+  def create_user_from(user_data)
     user = User.new
     user.first_name = user_data["info"]["first_name"]
     user.last_name = user_data["info"]["last_name"]
     user.email = user_data["info"]["email"]
     user.image = user_data["info"]["image"]
-    user.google_uid = user_data["uid"]
     user.email_confirmation = user_data["info"]["email"]
     user.password = SecureRandom.hex(9) # need to find better solution
+    user[provider_uid_symbol(user_data)] = user_data["uid"]
     user.save!
     user
+  end
+
+  def provider_uid_symbol(user_data)
+    case user_data["provider"]
+    when 'google'
+      return :google_uid
+    when 'linkedin'
+      return :linkedin_uid
+    end
   end
 end

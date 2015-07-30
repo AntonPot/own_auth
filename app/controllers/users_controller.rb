@@ -9,23 +9,16 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def google_callback
-    if google_user_data
-      user = User.where(google_uid: google_user_data["uid"]).first
-      user ||= create_user_from_google google_user_data
+  def oauth_callback
+    if user_data
+      user = User.where(provider_uid_symbol(user_data) => user_data["uid"]).first
+      user ||= create_user_from user_data
       sign_in_as user
       redirect_to root_path
     else
       flash[:notice] = "Something went wrong. Try creating an account."
       redirect_to signup_path
     end
-  end
-
-  def linkedin_callback
-      # par = MultiJson.encode(request.env['omniauth.auth'])
-      p "$"*99
-      p linkedin_user_data
-      redirect_to root_path, notice: 'LinkedIn Callback'
   end
 
   def create

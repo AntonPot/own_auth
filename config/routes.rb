@@ -17,10 +17,10 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   get '/auth/google' => 'users#new'
-  get '/auth/google/callback' => 'users#google_callback'
+  get '/auth/google/callback' => 'users#oauth_callback'
 
   get '/auth/linkedin' => 'users#new'
-  get '/auth/linkedin/callback' => 'users#linkedin_callback'
+  get '/auth/linkedin/callback' => 'users#oauth_callback'
 
 
 
