@@ -10,9 +10,9 @@ class UsersController < ApplicationController
   end
 
   def google_callback
-    if user_data
-      user = User.where(google_uid: user_data["uid"]).first
-      user ||= create_user_from_google user_data
+    if google_user_data
+      user = User.where(google_uid: google_user_data["uid"]).first
+      user ||= create_user_from_google google_user_data
       sign_in_as user
       redirect_to root_path
     else
@@ -22,8 +22,10 @@ class UsersController < ApplicationController
   end
 
   def linkedin_callback
+      # par = MultiJson.encode(request.env['omniauth.auth'])
       p "$"*99
-      p user
+      p linkedin_user_data
+      redirect_to root_path, notice: 'LinkedIn Callback'
   end
 
   def create

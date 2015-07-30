@@ -20,8 +20,12 @@ class ApplicationController < ActionController::Base
     session.clear
   end
 
-  def user_data
+  def google_user_data
     request.env['omniauth.auth'].to_hash
+  end
+
+  def linkedin_user_data
+    MultiJson.encode(request.env['omniauth.auth'])
   end
 
   def create_user_from_google(user_data)
